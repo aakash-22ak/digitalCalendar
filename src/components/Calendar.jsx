@@ -44,7 +44,7 @@ export default function Calendar() {
         <div className="grid grid-cols-7 bg-slate-100 gap-4 pt-5 ">
           {days.map((day, index) => {
             return (
-              <div key={index} className=" p-2 text-center">
+              <div key={index} className=" p-2 text-center text-xl">
                 {day}
               </div>
             );
@@ -56,11 +56,17 @@ export default function Calendar() {
             return (
               <>
                 {isEven ? (
-                  <div key={index} className="bg-pink-300 p-6 text-center">
+                  <div
+                    key={index}
+                    className="bg-pink-300 p-6 text-center hover:bg-pink-500 transition ease-in-out duration-300"
+                  >
                     {item}
                   </div>
                 ) : (
-                  <div key={index} className="bg-pink-400 p-6 text-center">
+                  <div
+                    key={index}
+                    className="bg-pink-400 p-6 text-center hover:bg-pink-500 transition ease-in-out duration-300"
+                  >
                     {item}
                   </div>
                 )}
