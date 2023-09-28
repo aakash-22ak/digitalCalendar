@@ -1,4 +1,9 @@
+
 export default function Calendar({ onAddItems }) {
+
+
+export default function Calendar() {
+
   const days = ["आइत", "सोम", "मंगल", "बुध", "बिहि", "शुक्र", "शनि "];
   const date = [
     "१",
@@ -92,3 +97,4 @@ export default function Calendar({ onAddItems }) {
     </div>
   );
 }
+
