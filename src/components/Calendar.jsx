@@ -2,12 +2,17 @@
 import Model from "./Model";
 import { useState , useEffect } from "react";
 
+export default function Calendar({ onAddItems }) {
+
+
 export default function Calendar() {
+
     const [eventData , setEventData] = useState(localStorage.getItem('Events'));
 
     console.log(localStorage.getItem('Events'))
     console.log(eventData)
    
+
   const days = ["आइत", "सोम", "मंगल", "बुध", "बिहि", "शुक्र", "शनि "];
   const date = [
     { date: "१", id: 1 },
@@ -119,6 +124,7 @@ export default function Calendar() {
             })}
           </div>
         </div>
+
         <div className="w-[550px] rounded-lg">
           <div className="bg-red-600 py-10 rounded-t-lg">
             <h1 className="text-3xl font-bold text-white px-8">Events </h1>
@@ -131,5 +137,46 @@ export default function Calendar() {
         </div>
       </div>
     </>
+
+        <div className="grid grid-cols-7 ">
+          {date.map((item, index) => {
+            const newIndex = index + 1;
+            const isEven = newIndex % 2 === 0;
+            const isSpecialDate = newIndex % 7 === 0;
+
+            return (
+              <>
+                {isSpecialDate ? (
+                  <div
+                    key={index}
+                    className="bg-red-600 p-6 text-center hover:bg-slate-100 transition ease-in-out duration-300"
+                  >
+                    {item}
+                  </div>
+                ) : isEven ? (
+                  <div
+                    key={index}
+                    className="bg-pink-300 p-6 text-center hover:bg-pink-500 transition ease-in-out duration-300"
+                  >
+                    {item}
+                  </div>
+                ) : (
+                  <div
+                    onClick={(prev) => setIsOpen((prev) => !prev)}
+                    key={index}
+                    className="bg-pink-400 p-6 text-center hover:bg-pink-500 transition ease-in-out duration-300"
+                  >
+                    {item}
+                  </div>
+                )}
+              </>
+            );
+          })}
+        </div>
+      </div>
+      <div>
+        <main></main>
+      </div>
+    </div>
   );
 }
