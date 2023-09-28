@@ -1,5 +1,10 @@
-import CalendarTwo from "@/components/CalendarTwo";
-import Image from "next/image";
+
+"use client";
+import { useState } from "react";
+import Calendar from "@/components/Calendar";
+
+
+
 
 export default function Home() {
   return (
@@ -7,7 +12,7 @@ export default function Home() {
 
       
     <main className="flex min-h-screen flex-col items-center justify-between p-24">
-      <CalendarTwo />
+      
     <Calendar />
     </main>
   );
